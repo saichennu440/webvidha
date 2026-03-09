@@ -9,19 +9,19 @@ export default function Testimonials() {
       text: t('testimonial1_text'),
       author: t('testimonial1_author'),
       role: t('testimonial1_role'),
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200',
+      image: 'https://www.vocinfra.com/Jagadish_Gadireddy.png',
     },
     {
       text: t('testimonial2_text'),
       author: t('testimonial2_author'),
       role: t('testimonial2_role'),
-      image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg?auto=compress&cs=tinysrgb&w=200',
+      image: '/shilpa.jpeg',
     },
     {
       text: t('testimonial3_text'),
       author: t('testimonial3_author'),
       role: t('testimonial3_role'),
-      image: 'https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=200',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200',
     },
   ];
 

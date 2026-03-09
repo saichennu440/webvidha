@@ -51,15 +51,15 @@ const translations = {
     testimonials_subtitle: 'What Our Clients Say',
 
     testimonial1_text: 'Webvidha transformed our online presence completely. The team delivered a stunning website that perfectly captures our brand and has significantly increased our customer inquiries.',
-    testimonial1_author: 'Rajesh Kumar',
-    testimonial1_role: 'CEO, TechStart Solutions',
+    testimonial1_author: 'Jagadesh Gadireddy',
+    testimonial1_role: 'CEO, VOC Infra ',
 
     testimonial2_text: 'Professional, responsive, and incredibly talented. They built our e-commerce platform from scratch and it has exceeded all our expectations. Highly recommended!',
-    testimonial2_author: 'Priya Sharma',
-    testimonial2_role: 'Founder, StyleHub Fashion',
+    testimonial2_author: 'Dr.Shilpa Kotla',
+    testimonial2_role: 'Founder, WahStays',
 
     testimonial3_text: 'The best web development agency in Hyderabad. They understood our requirements perfectly and delivered a custom web application that streamlined our entire business process.',
-    testimonial3_author: 'Anil Reddy',
+    testimonial3_author: 'Karthik Reddy',
     testimonial3_role: 'Director, Global Enterprises',
 
     pricing_title: 'Pricing Plans',
@@ -131,7 +131,7 @@ const translations = {
     contact_info_location: 'Hyderabad, Telangana',
 
     footer_tagline: 'Crafting Digital Excellence',
-    footer_copyright: '© 2024 Webvidha. All rights reserved.',
+    footer_copyright: '© 2026 Webvidha. All rights reserved.',
     footer_services: 'Services',
     footer_company: 'Company',
     footer_about: 'About Us',
@@ -186,12 +186,12 @@ const translations = {
     testimonials_subtitle: 'మా క్లయింట్లు చెప్పేది',
 
     testimonial1_text: 'వెబ్విధా మా ఆన్‌లైన్ ఉనికిని పూర్తిగా మార్చింది. టీమ్ మా బ్రాండ్‌ను సంపూర్ణంగా సంగ్రహించే అద్భుతమైన వెబ్‌సైట్‌ను అందించింది మరియు మా కస్టమర్ విచారణలను గణనీయంగా పెంచింది.',
-    testimonial1_author: 'రాజేష్ కుమార్',
+    testimonial1_author: 'జగదేశ్ గాదిరెడ్డి',
     testimonial1_role: 'CEO, టెక్‌స్టార్ట్ సొల్యూషన్స్',
 
     testimonial2_text: 'ప్రొఫెషనల్, రెస్పాన్సివ్ మరియు అద్భుతమైన ప్రతిభావంతులు. వారు మా ఇ-కామర్స్ ప్లాట్‌ఫారమ్‌ను మొదటి నుండి నిర్మించారు మరియు ఇది మా అంచనాలన్నింటినీ మించిపోయింది. బాగా సిఫార్సు చేయబడింది!',
-    testimonial2_author: 'ప్రియా శర్మ',
-    testimonial2_role: 'వ్యవస్థాపకుడు, స్టైల్‌హబ్ ఫ్యాషన్',
+    testimonial2_author: 'డాక్టర్ శిల్ప కోట్ల',
+    testimonial2_role: 'వ్యవస్థాపకుడు, వాహ్‌స్టేస్',
 
     testimonial3_text: 'హైదరాబాద్‌లో అత్యుత్తమ వెబ్ డెవలప్‌మెంట్ ఏజెన్సీ. వారు మా అవసరాలను సంపూర్ణంగా అర్థం చేసుకున్నారు మరియు మా మొత్తం వ్యాపార ప్రక్రియను క్రమబద్ధీకరించే కస్టమ్ వెబ్ అప్లికేషన్‌ను అందించారు.',
     testimonial3_author: 'అనిల్ రెడ్డి',
@@ -266,7 +266,7 @@ const translations = {
     contact_info_location: 'హైదరాబాద్, తెలంగాణ',
 
     footer_tagline: 'డిజిటల్ శ్రేష్ఠతను రూపొందించడం',
-    footer_copyright: '© 2024 వెబ్విధా. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.',
+    footer_copyright: '© 2026 వెబ్విధా. అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.',
     footer_services: 'సేవలు',
     footer_company: 'కంపెనీ',
     footer_about: 'మా గురించి',
@@ -321,15 +321,15 @@ const translations = {
     testimonials_subtitle: 'हमारे ग्राहक क्या कहते हैं',
 
     testimonial1_text: 'वेबविधा ने हमारी ऑनलाइन उपस्थिति को पूरी तरह बदल दिया। टीम ने एक शानदार वेबसाइट बनाई जो हमारे ब्रांड को सटीक रूप से दर्शाती है और हमारी ग्राहक पूछताछ को काफी बढ़ाया।',
-    testimonial1_author: 'राजेश कुमार',
-    testimonial1_role: 'CEO, टेकस्टार्ट सॉल्यूशंस',
+    testimonial1_author: 'जगदीश गदिरेड्डी',
+    testimonial1_role: 'CEO, वीओसी इन्फ्रा',
 
     testimonial2_text: 'पेशेवर, जिम्मेदार और अविश्वसनीय रूप से प्रतिभाशाली। उन्होंने हमारा ई-कॉमर्स प्लेटफॉर्म शुरू से बनाया और यह हमारी सभी उम्मीदों से बेहतर निकला। अत्यधिक अनुशंसित!',
-    testimonial2_author: 'प्रिया शर्मा',
-    testimonial2_role: 'संस्थापक, स्टाइलहब फैशन',
+    testimonial2_author: 'डॉ. शिल्पा कोटला',
+    testimonial2_role: 'संस्थापक, वाहस्टेज़',
 
     testimonial3_text: 'हैदराबाद में सबसे अच्छी वेब डेवलपमेंट एजेंसी। उन्होंने हमारी जरूरतों को पूरी तरह समझा और एक कस्टम वेब एप्लिकेशन बनाई जिसने हमारी पूरी व्यावसायिक प्रक्रिया को सुव्यवस्थित किया।',
-    testimonial3_author: 'अनिल रेड्डी',
+    testimonial3_author: 'कार्तिक रेड्डी',
     testimonial3_role: 'निदेशक, ग्लोबल एंटरप्राइजेज',
 
     pricing_title: 'मूल्य योजनाएं',
@@ -401,7 +401,7 @@ const translations = {
     contact_info_location: 'हैदराबाद, तेलंगाना',
 
     footer_tagline: 'डिजिटल उत्कृष्टता को आकार देना',
-    footer_copyright: '© 2024 वेबविधा। सर्वाधिकार सुरक्षित।',
+    footer_copyright: '© 2026 वेबविधा। सर्वाधिकार सुरक्षित।',
     footer_services: 'सेवाएं',
     footer_company: 'कंपनी',
     footer_about: 'हमारे बारे में',
@@ -456,12 +456,12 @@ const translations = {
     testimonials_subtitle: 'எங்கள் வாடிக்கையாளர்கள் என்ன சொல்கிறார்கள்',
 
     testimonial1_text: 'வெப்விதா எங்கள் ஆன்லைன் இருப்பை முழுமையாக மாற்றியது. குழு எங்கள் பிராண்டை சரியாக பிடிக்கும் ஒரு அற்புதமான வலைதளத்தை வழங்கியது மற்றும் எங்கள் வாடிக்கையாளர் விசாரணைகளை கணிசமாக அதிகரித்தது.',
-    testimonial1_author: 'ராஜேஷ் குமார்',
+    testimonial1_author: 'ஜெகதேஷ் காதிரெட்டி',
     testimonial1_role: 'CEO, டெக்ஸ்டார்ட் சொல்யூஷன்ஸ்',
 
     testimonial2_text: 'தொழில்முறை, பதிலளிக்கக்கூடிய மற்றும் நம்பமுடியாத திறமையான. அவர்கள் எங்கள் இ-காமர்ஸ் தளத்தை ஆரம்பத்திலிருந்து கட்டினார்கள், இது எங்கள் அனைத்து எதிர்பார்ப்புகளையும் மீறியது. மிகவும் பரிந்துரைக்கப்படுகிறது!',
-    testimonial2_author: 'பிரியா சர்மா',
-    testimonial2_role: 'நிறுவனர், ஸ்டைல்ஹப் ஃபேஷன்',
+    testimonial2_author: 'டாக்டர் ஷில்பா கோட்லா',
+    testimonial2_role: 'நிறுவனர்,வஹ்ஸ்டேஸ்',
 
     testimonial3_text: 'ஹைதராபாத்தில் சிறந்த வலை மேம்பாட்டு நிறுவனம். அவர்கள் எங்கள் தேவைகளை முழுமையாக புரிந்துகொண்டார்கள் மற்றும் எங்கள் முழு வணிக செயல்முறையை ஒழுங்குபடுத்திய தனிப்பயன் வலை பயன்பாட்டை வழங்கினர்.',
     testimonial3_author: 'அனில் ரெட்டி',
@@ -536,7 +536,7 @@ const translations = {
     contact_info_location: 'ஹைதராபாத், தெலங்கானா',
 
     footer_tagline: 'டிஜிட்டல் சிறப்பை உருவாக்குகிறோம்',
-    footer_copyright: '© 2024 வெப்விதா. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
+    footer_copyright: '© 2026 வெப்விதா. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
     footer_services: 'சேவைகள்',
     footer_company: 'நிறுவனம்',
     footer_about: 'எங்களைப் பற்றி',
@@ -591,12 +591,12 @@ const translations = {
     testimonials_subtitle: 'ನಮ್ಮ ಗ್ರಾಹಕರು ಏನು ಹೇಳುತ್ತಾರೆ',
 
     testimonial1_text: 'ವೆಬ್‌ವಿಧಾ ನಮ್ಮ ಆನ್‌ಲೈನ್ ಉಪಸ್ಥಿತಿಯನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ರೂಪಾಂತರಿಸಿತು. ತಂಡವು ನಮ್ಮ ಬ್ರ್ಯಾಂಡ್ ಅನ್ನು ಸರಿಯಾಗಿ ಸೆರೆಹಿಡಿಯುವ ಅದ್ಭುತ ವೆಬ್‌ಸೈಟ್ ನೀಡಿತು ಮತ್ತು ನಮ್ಮ ಗ್ರಾಹಕ ವಿಚಾರಣೆಗಳನ್ನು ಗಣನೀಯವಾಗಿ ಹೆಚ್ಚಿಸಿತು.',
-    testimonial1_author: 'ರಾಜೇಶ್ ಕುಮಾರ್',
-    testimonial1_role: 'CEO, ಟೆಕ್‌ಸ್ಟಾರ್ಟ್ ಸೊಲ್ಯೂಷನ್ಸ್',
+    testimonial1_author: 'ಜಗದೀಶ್ ಗಾಧಿರೆಡ್ಡಿ',
+    testimonial1_role: 'CEO, ವೋಕ್ ಇನ್ಫ್ರಾ',
 
     testimonial2_text: 'ವೃತ್ತಿಪರ, ಸ್ಪಂದನಶೀಲ ಮತ್ತು ಅದ್ಭುತವಾಗಿ ಪ್ರತಿಭಾವಂತ. ಅವರು ನಮ್ಮ ಇ-ಕಾಮರ್ಸ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಅನ್ನು ಮೊದಲಿನಿಂದ ನಿರ್ಮಿಸಿದರು ಮತ್ತು ಇದು ನಮ್ಮ ಎಲ್ಲಾ ನಿರೀಕ್ಷೆಗಳನ್ನು ಮೀರಿದೆ. ಹೆಚ್ಚು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ!',
-    testimonial2_author: 'ಪ್ರಿಯಾ ಶರ್ಮಾ',
-    testimonial2_role: 'ಸಂಸ್ಥಾಪಕ, ಸ್ಟೈಲ್‌ಹಬ್ ಫ್ಯಾಷನ್',
+    testimonial2_author: 'ಡಾ. ಶಿಲ್ಪಾ ಕೋಟ್ಲಾ',
+    testimonial2_role: 'ಸಂಸ್ಥಾಪಕ, ವಾಸ್ಟೇಸ್',
 
     testimonial3_text: 'ಹೈದರಾಬಾದ್‌ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವೆಬ್ ಡೆವಲಪ್‌ಮೆಂಟ್ ಏಜೆನ್ಸಿ. ಅವರು ನಮ್ಮ ಅಗತ್ಯಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡರು ಮತ್ತು ನಮ್ಮ ಸಂಪೂರ್ಣ ವ್ಯಾಪಾರ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಸುಗಮಗೊಳಿಸಿದ ಕಸ್ಟಮ್ ವೆಬ್ ಅಪ್ಲಿಕೇಶನ್ ನೀಡಿದರು.',
     testimonial3_author: 'ಅನಿಲ್ ರೆಡ್ಡಿ',
@@ -671,7 +671,7 @@ const translations = {
     contact_info_location: 'ಹೈದರಾಬಾದ್, ತೆಲಂಗಾಣ',
 
     footer_tagline: 'ಡಿಜಿಟಲ್ ಶ್ರೇಷ್ಠತೆಯನ್ನು ರೂಪಿಸುವುದು',
-    footer_copyright: '© 2024 ವೆಬ್‌ವಿಧಾ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
+    footer_copyright: '© 2026 ವೆಬ್‌ವಿಧಾ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
     footer_services: 'ಸೇವೆಗಳು',
     footer_company: 'ಕಂಪನಿ',
     footer_about: 'ನಮ್ಮ ಬಗ್ಗೆ',
