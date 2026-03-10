@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <button onClick={scrollToTop} className="flex items-center gap-2 mb-4 group">
-              <img src = '/webvidha-high-resolution-logo-transparent.png' alt="Logo" className="w-18 h-9 transition-transform duration-300 group-hover:scale-110" />
+              <img src = '/webvidha-high-resolution-logo-transparent.png' alt="Logo" className="w-18 h-10 transition-transform duration-300 group-hover:scale-110" />
             </button>
             <p className="text-slate-400 mb-6">
               {t('footer_tagline')}

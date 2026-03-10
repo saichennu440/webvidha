@@ -59,8 +59,8 @@ const translations = {
     testimonial2_role: 'Founder, WahStays',
 
     testimonial3_text: 'The best web development agency in Hyderabad. They understood our requirements perfectly and delivered a custom web application that streamlined our entire business process.',
-    testimonial3_author: 'Karthik Reddy',
-    testimonial3_role: 'Director, Global Enterprises',
+    testimonial3_author: 'Ramya Jaddu',
+    testimonial3_role: 'Director, Scalers Business Agency',
 
     pricing_title: 'Pricing Plans',
     pricing_subtitle: 'Choose the Perfect Package for Your Business',
@@ -194,8 +194,8 @@ const translations = {
     testimonial2_role: 'వ్యవస్థాపకుడు, వాహ్‌స్టేస్',
 
     testimonial3_text: 'హైదరాబాద్‌లో అత్యుత్తమ వెబ్ డెవలప్‌మెంట్ ఏజెన్సీ. వారు మా అవసరాలను సంపూర్ణంగా అర్థం చేసుకున్నారు మరియు మా మొత్తం వ్యాపార ప్రక్రియను క్రమబద్ధీకరించే కస్టమ్ వెబ్ అప్లికేషన్‌ను అందించారు.',
-    testimonial3_author: 'అనిల్ రెడ్డి',
-    testimonial3_role: 'డైరెక్టర్, గ్లోబల్ ఎంటర్‌ప్రైజెస్',
+    testimonial3_author: 'రమ్య జడ్డు',
+    testimonial3_role: 'డైరెక్టర్, స్కేలర్స్ బస్నీస్ ఏజెన్సీ',
 
     pricing_title: 'ధర ప్రణాళికలు',
     pricing_subtitle: 'మీ వ్యాపారానికి సరైన ప్యాకేజీని ఎంచుకోండి',
@@ -329,8 +329,8 @@ const translations = {
     testimonial2_role: 'संस्थापक, वाहस्टेज़',
 
     testimonial3_text: 'हैदराबाद में सबसे अच्छी वेब डेवलपमेंट एजेंसी। उन्होंने हमारी जरूरतों को पूरी तरह समझा और एक कस्टम वेब एप्लिकेशन बनाई जिसने हमारी पूरी व्यावसायिक प्रक्रिया को सुव्यवस्थित किया।',
-    testimonial3_author: 'कार्तिक रेड्डी',
-    testimonial3_role: 'निदेशक, ग्लोबल एंटरप्राइजेज',
+    testimonial3_author: 'रम्या जड्डु',
+    testimonial3_role: 'निदेशक,स्केलर्स बिजनेस एजेंसी',
 
     pricing_title: 'मूल्य योजनाएं',
     pricing_subtitle: 'अपने व्यवसाय के लिए सही पैकेज चुनें',
@@ -464,8 +464,8 @@ const translations = {
     testimonial2_role: 'நிறுவனர்,வஹ்ஸ்டேஸ்',
 
     testimonial3_text: 'ஹைதராபாத்தில் சிறந்த வலை மேம்பாட்டு நிறுவனம். அவர்கள் எங்கள் தேவைகளை முழுமையாக புரிந்துகொண்டார்கள் மற்றும் எங்கள் முழு வணிக செயல்முறையை ஒழுங்குபடுத்திய தனிப்பயன் வலை பயன்பாட்டை வழங்கினர்.',
-    testimonial3_author: 'அனில் ரெட்டி',
-    testimonial3_role: 'இயக்குனர், குளோபல் என்டர்பிரைசஸ்',
+    testimonial3_author: 'ரம்யா ஜட்டு',
+    testimonial3_role: 'இயக்குனர், ஸ்கேலர்ஸ் பிசினஸ் ஏஜென்சி ',
 
     pricing_title: 'விலை திட்டங்கள்',
     pricing_subtitle: 'உங்கள் வணிகத்திற்கு சரியான தொகுப்பை தேர்வு செய்யுங்கள்',
@@ -599,8 +599,8 @@ const translations = {
     testimonial2_role: 'ಸಂಸ್ಥಾಪಕ, ವಾಸ್ಟೇಸ್',
 
     testimonial3_text: 'ಹೈದರಾಬಾದ್‌ನಲ್ಲಿ ಅತ್ಯುತ್ತಮ ವೆಬ್ ಡೆವಲಪ್‌ಮೆಂಟ್ ಏಜೆನ್ಸಿ. ಅವರು ನಮ್ಮ ಅಗತ್ಯಗಳನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಂಡರು ಮತ್ತು ನಮ್ಮ ಸಂಪೂರ್ಣ ವ್ಯಾಪಾರ ಪ್ರಕ್ರಿಯೆಯನ್ನು ಸುಗಮಗೊಳಿಸಿದ ಕಸ್ಟಮ್ ವೆಬ್ ಅಪ್ಲಿಕೇಶನ್ ನೀಡಿದರು.',
-    testimonial3_author: 'ಅನಿಲ್ ರೆಡ್ಡಿ',
-    testimonial3_role: 'ನಿರ್ದೇಶಕ, ಗ್ಲೋಬಲ್ ಎಂಟರ್‌ಪ್ರೈಸಸ್',
+    testimonial3_author: 'ರம್ಯಾ ಜಡ್ಡು',
+    testimonial3_role: 'ನಿರ್ದೇಶಕ, ಸ್ಕೇಲರ್ಸ್ ಬಿಸಿನೆಸ್ ಏಜೆನ್ಸಿ',
 
     pricing_title: 'ಬೆಲೆ ಯೋಜನೆಗಳು',
     pricing_subtitle: 'ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕಾಗಿ ಸರಿಯಾದ ಪ್ಯಾಕೇಜ್ ಆಯ್ಕೆ ಮಾಡಿ',

@@ -21,7 +21,7 @@ export default function Testimonials() {
       text: t('testimonial3_text'),
       author: t('testimonial3_author'),
       role: t('testimonial3_role'),
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200',
+      image: '/ramya.png',
     },
   ];
 

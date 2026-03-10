@@ -13,16 +13,30 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+  try {
+    const res = await fetch("https://formspree.io/f/xqeypaek", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-    alert('Thank you! We will get back to you soon.');
-    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+    if (res.ok) {
+      // success — reset form
+      setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      alert("Message sent! We'll get back to you soon."); // or use your toast/success UI
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch {
+    alert("Network error. Please check your connection.");
+  } finally {
     setIsSubmitting(false);
-  };
+  }
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
