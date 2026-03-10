@@ -126,7 +126,7 @@ const translations = {
     contact_service_other: 'Other',
 
     contact_info_title: 'Contact Information',
-    contact_info_email: 'hello@webvidha.com',
+    contact_info_email: 'webvidha@gmail.com',
     contact_info_phone: '+91 98765 43210',
     contact_info_location: 'Hyderabad, Telangana',
 
