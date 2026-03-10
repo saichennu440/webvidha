@@ -201,7 +201,7 @@ const translations = {
     pricing_subtitle: 'మీ వ్యాపారానికి సరైన ప్యాకేజీని ఎంచుకోండి',
     pricing_currency: '₹',
     pricing_month: '/నెల',
-    pricing_custom: 'కస్టమ్ కోట్',
+    pricing_custom: 'Custom Quote',
     pricing_cta: 'ప్రారంభించండి',
     pricing_contact: 'మమ్మల్ని సంప్రదించండి',
 
@@ -336,7 +336,7 @@ const translations = {
     pricing_subtitle: 'अपने व्यवसाय के लिए सही पैकेज चुनें',
     pricing_currency: '₹',
     pricing_month: '/माह',
-    pricing_custom: 'कस्टम कोट',
+    pricing_custom: 'Custom Quote',
     pricing_cta: 'शुरू करें',
     pricing_contact: 'हमसे संपर्क करें',
 
@@ -471,7 +471,7 @@ const translations = {
     pricing_subtitle: 'உங்கள் வணிகத்திற்கு சரியான தொகுப்பை தேர்வு செய்யுங்கள்',
     pricing_currency: '₹',
     pricing_month: '/மாதம்',
-    pricing_custom: 'தனிப்பயன் மேற்கோள்',
+    pricing_custom: 'Custom Quote',
     pricing_cta: 'தொடங்குங்கள்',
     pricing_contact: 'எங்களை தொடர்பு கொள்ளுங்கள்',
 
@@ -606,7 +606,7 @@ const translations = {
     pricing_subtitle: 'ನಿಮ್ಮ ವ್ಯಾಪಾರಕ್ಕಾಗಿ ಸರಿಯಾದ ಪ್ಯಾಕೇಜ್ ಆಯ್ಕೆ ಮಾಡಿ',
     pricing_currency: '₹',
     pricing_month: '/ತಿಂಗಳು',
-    pricing_custom: 'ಕಸ್ಟಮ್ ಕೋಟ್',
+    pricing_custom: 'Custom Quote',
     pricing_cta: 'ಪ್ರಾರಂಭಿಸಿ',
     pricing_contact: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ',
 
