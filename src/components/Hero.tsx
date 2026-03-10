@@ -1,136 +1,179 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowRight, Sparkles, MousePointer2 } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
+  const mouseRef = useRef({ x: -999, y: -999 });
   const [loaded, setLoaded] = useState(false);
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  useEffect(() => {
-    setTimeout(() => setLoaded(true), 100);
-  }, []);
+  useEffect(() => { setTimeout(() => setLoaded(true), 80); }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d')!;
-    let W = (canvas.width = window.innerWidth);
-    let H = (canvas.height = window.innerHeight);
+    let W = canvas.width = window.innerWidth;
+    let H = canvas.height = window.innerHeight;
+    let time = 0;
 
-    const onMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
-    };
-    window.addEventListener('mousemove', onMouseMove);
+    const onMouse = (e: MouseEvent) => { mouseRef.current = { x: e.clientX, y: e.clientY }; };
+    window.addEventListener('mousemove', onMouse);
 
-    // Grid nodes
-    const cols = Math.ceil(W / 80) + 1;
-    const rows = Math.ceil(H / 80) + 1;
-    type Node = { bx: number; by: number; x: number; y: number; vx: number; vy: number };
-    const nodes: Node[] = [];
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        nodes.push({ bx: c * 80, by: r * 80, x: c * 80, y: r * 80, vx: 0, vy: 0 });
-      }
-    }
-
-    // Shooting stars
-    type Star = { x: number; y: number; len: number; speed: number; alpha: number; angle: number };
-    const stars: Star[] = Array.from({ length: 6 }, () => ({
-      x: Math.random() * W, y: Math.random() * H * 0.5,
-      len: Math.random() * 120 + 60, speed: Math.random() * 4 + 3,
-      alpha: 0, angle: Math.PI / 5,
+    // Flowing lava-lamp style blobs
+    type Blob = { x: number; y: number; vx: number; vy: number; r: number; hue: number };
+    const blobs: Blob[] = Array.from({ length: 7 }, (_, i) => ({
+      x: (W / 7) * i + W / 14,
+      y: H * 0.3 + Math.random() * H * 0.4,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.4,
+      r: Math.random() * 220 + 160,
+      hue: 210 + Math.random() * 30,
     }));
 
-    let time = 0;
+    // Bright stars
+    type Star = { x: number; y: number; r: number; phase: number; speed: number };
+    const stars: Star[] = Array.from({ length: 220 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.pow(Math.random(), 3) * 2.2 + 0.2,
+      phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.025 + 0.005,
+    }));
+
+    // DNA-helix style data streams on the sides
+    type Stream = { x: number; offset: number; color: string };
+    const streams: Stream[] = [
+      { x: W * 0.05,  offset: 0,   color: '59,130,246' },
+      { x: W * 0.95,  offset: 2.1, color: '34,211,238' },
+      { x: W * 0.08,  offset: 1.0, color: '99,102,241' },
+      { x: W * 0.92,  offset: 3.2, color: '59,130,246' },
+    ];
+
+    // Floating code chars
+    type CodeChar = { x: number; y: number; char: string; alpha: number; speed: number; size: number };
+    const chars = ['<', '>', '/', '{', '}', ';', '(', ')', '=', '0', '1'];
+    const codeChars: CodeChar[] = Array.from({ length: 30 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      char: chars[Math.floor(Math.random() * chars.length)],
+      alpha: Math.random() * 0.12 + 0.03,
+      speed: Math.random() * 0.3 + 0.1,
+      size: Math.random() * 10 + 8,
+    }));
+
     const draw = () => {
-      time += 0.012;
+      time += 0.008;
       ctx.clearRect(0, 0, W, H);
 
-      const mx = mouseRef.current.x;
-      const my = mouseRef.current.y;
+      // Rich deep background gradient
+      const bg = ctx.createLinearGradient(0, 0, W, H);
+      bg.addColorStop(0,   '#000b1e');
+      bg.addColorStop(0.35,'#001030');
+      bg.addColorStop(0.7, '#000c24');
+      bg.addColorStop(1,   '#00060f');
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
 
-      // Animate nodes
-      nodes.forEach(n => {
-        const dx = mx - n.bx;
-        const dy = my - n.by;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        const force = Math.max(0, 120 - dist) / 120;
-        n.vx += (n.bx - n.x) * 0.08 + (dx / dist || 0) * force * 3;
-        n.vy += (n.by - n.y) * 0.08 + (dy / dist || 0) * force * 3;
-        n.vx *= 0.75; n.vy *= 0.75;
-        n.x += n.vx; n.y += n.vy;
+      // Moving blobs - metaball-like glow
+      blobs.forEach(b => {
+        b.x += b.vx; b.y += b.vy;
+        if (b.x < -b.r) b.x = W + b.r;
+        if (b.x > W + b.r) b.x = -b.r;
+        if (b.y < -b.r) b.y = H + b.r;
+        if (b.y > H + b.r) b.y = -b.r;
+        const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        g.addColorStop(0,   `hsla(${b.hue},90%,55%,0.12)`);
+        g.addColorStop(0.4, `hsla(${b.hue},80%,45%,0.06)`);
+        g.addColorStop(1,   'transparent');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, W, H);
       });
 
-      // Draw grid lines
-      for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-          const i = r * cols + c;
-          const n = nodes[i];
-          if (c < cols - 1) {
-            const nr = nodes[i + 1];
-            const alpha = 0.06 + Math.sin(time + c * 0.3 + r * 0.2) * 0.03;
-            ctx.beginPath();
-            ctx.moveTo(n.x, n.y);
-            ctx.lineTo(nr.x, nr.y);
-            ctx.strokeStyle = `rgba(59,130,246,${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-          if (r < rows - 1) {
-            const nb = nodes[i + cols];
-            const alpha = 0.06 + Math.sin(time + r * 0.3 + c * 0.2) * 0.03;
-            ctx.beginPath();
-            ctx.moveTo(n.x, n.y);
-            ctx.lineTo(nb.x, nb.y);
-            ctx.strokeStyle = `rgba(59,130,246,${alpha})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-          // Nodes dots
-          const ddx = mx - n.x, ddy = my - n.y;
-          const dd = Math.sqrt(ddx * ddx + ddy * ddy);
-          const bright = Math.max(0, 1 - dd / 160);
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, 1.5 + bright * 2.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(96,165,250,${0.15 + bright * 0.7})`;
-          ctx.fill();
-        }
+      // Mouse reactive spotlight
+      const mx = mouseRef.current.x, my = mouseRef.current.y;
+      if (mx > 0) {
+        const ms = ctx.createRadialGradient(mx, my, 0, mx, my, 350);
+        ms.addColorStop(0,   'rgba(59,130,246,0.08)');
+        ms.addColorStop(0.5, 'rgba(37,99,235,0.03)');
+        ms.addColorStop(1,   'transparent');
+        ctx.fillStyle = ms;
+        ctx.fillRect(0, 0, W, H);
       }
 
-      // Shooting stars
+      // Stars with twinkle
       stars.forEach(s => {
-        s.alpha += 0.04;
-        s.x += Math.cos(s.angle) * s.speed;
-        s.y += Math.sin(s.angle) * s.speed;
-        if (s.alpha > 1) s.alpha = 1;
-        if (s.x > W + 200 || s.y > H) {
-          s.x = Math.random() * W * 0.7;
-          s.y = Math.random() * H * 0.3 - 50;
-          s.alpha = 0;
-          s.len = Math.random() * 120 + 60;
-          s.speed = Math.random() * 4 + 3;
-        }
-        const grad = ctx.createLinearGradient(
-          s.x, s.y,
-          s.x - Math.cos(s.angle) * s.len,
-          s.y - Math.sin(s.angle) * s.len
-        );
-        grad.addColorStop(0, `rgba(255,255,255,${s.alpha * 0.9})`);
-        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        s.phase += s.speed;
+        const a = 0.4 + Math.sin(s.phase) * 0.35;
+        const r = s.r * (0.8 + Math.sin(s.phase * 0.7) * 0.2);
         ctx.beginPath();
-        ctx.moveTo(s.x, s.y);
-        ctx.lineTo(s.x - Math.cos(s.angle) * s.len, s.y - Math.sin(s.angle) * s.len);
-        ctx.strokeStyle = grad;
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+        ctx.arc(s.x, s.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(210,230,255,${a})`;
+        ctx.fill();
+        if (s.r > 1.4) {
+          ctx.strokeStyle = `rgba(180,210,255,${a * 0.4})`;
+          ctx.lineWidth = 0.5;
+          const arm = s.r * 3;
+          ctx.beginPath(); ctx.moveTo(s.x - arm, s.y); ctx.lineTo(s.x + arm, s.y); ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(s.x, s.y - arm); ctx.lineTo(s.x, s.y + arm); ctx.stroke();
+        }
       });
+
+      // Side data streams
+      streams.forEach(s => {
+        for (let i = 0; i < 12; i++) {
+          const y = ((time * 80 + s.offset * 100 + i * 55) % (H + 100)) - 50;
+          const a = 0.4 + Math.sin(time * 2 + i) * 0.2;
+          const grad = ctx.createLinearGradient(0, y - 30, 0, y + 30);
+          grad.addColorStop(0, 'transparent');
+          grad.addColorStop(0.5, `rgba(${s.color},${a})`);
+          grad.addColorStop(1, 'transparent');
+          ctx.strokeStyle = grad;
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(s.x, y - 30);
+          ctx.lineTo(s.x, y + 30);
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(s.x, y, 2.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${s.color},${a * 0.8})`;
+          ctx.fill();
+        }
+      });
+
+      // Floating code chars
+      codeChars.forEach(c => {
+        c.y -= c.speed;
+        if (c.y < -20) { c.y = H + 20; c.x = Math.random() * W; }
+        ctx.font = `${c.size}px monospace`;
+        ctx.fillStyle = `rgba(96,165,250,${c.alpha})`;
+        ctx.fillText(c.char, c.x, c.y);
+      });
+
+      // Horizontal scanlines (very subtle)
+      ctx.fillStyle = 'rgba(0,0,20,0.025)';
+      for (let y = 0; y < H; y += 3) ctx.fillRect(0, y, W, 1);
+
+      // Bottom aurora horizon
+      const horizon = ctx.createLinearGradient(0, H * 0.75, 0, H);
+      horizon.addColorStop(0, 'transparent');
+      horizon.addColorStop(0.5, `rgba(37,99,235,${0.06 + Math.sin(time) * 0.02})`);
+      horizon.addColorStop(1, `rgba(29,78,216,${0.12 + Math.sin(time * 0.7) * 0.03})`);
+      ctx.fillStyle = horizon;
+      ctx.fillRect(0, H * 0.75, W, H * 0.25);
+
+      // Central radial glow behind content
+      const cg = ctx.createRadialGradient(W/2, H*0.44, 0, W/2, H*0.44, 500);
+      cg.addColorStop(0,   `rgba(37,99,235,${0.14 + Math.sin(time*0.5)*0.04})`);
+      cg.addColorStop(0.3, `rgba(29,78,216,${0.06 + Math.sin(time*0.4)*0.02})`);
+      cg.addColorStop(1,   'transparent');
+      ctx.fillStyle = cg;
+      ctx.fillRect(0, 0, W, H);
 
       rafRef.current = requestAnimationFrame(draw);
     };
@@ -143,260 +186,320 @@ export default function Hero() {
     window.addEventListener('resize', resize);
     return () => {
       cancelAnimationFrame(rafRef.current);
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousemove', onMouse);
       window.removeEventListener('resize', resize);
     };
   }, []);
 
-  const words = (t('hero_title') as string).split(' ');
+  const stats = [
+    { value: '50+',  label: t('trust_clients') },
+    { value: '100+', label: t('trust_projects') },
+    { value: '5+',   label: t('trust_experience') },
+    { value: '98%',  label: t('trust_satisfaction') },
+  ];
 
   return (
     <section style={{
-      position: 'relative', minHeight: '100vh',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'linear-gradient(160deg, #000510 0%, #050d20 40%, #071428 70%, #030810 100%)',
-      overflow: 'hidden', color: 'white',
+      position: 'relative',
+      width: '100%',
+      minHeight: '100vh',
+      overflow: 'hidden',
+      color: 'white',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
 
-        @keyframes wordReveal {
-          from { opacity:0; transform: translateY(60px) rotateX(-40deg); filter:blur(8px); }
-          to   { opacity:1; transform: translateY(0)   rotateX(0deg);   filter:blur(0); }
+        @keyframes fadeRise {
+          from { opacity:0; transform:translateY(48px) scale(0.97); filter:blur(8px); }
+          to   { opacity:1; transform:translateY(0)    scale(1);    filter:blur(0); }
         }
-        @keyframes lineGrow {
-          from { transform: scaleX(0); }
-          to   { transform: scaleX(1); }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity:0; transform:translateY(30px); }
+        @keyframes fadeUp {
+          from { opacity:0; transform:translateY(28px); }
           to   { opacity:1; transform:translateY(0); }
         }
-        @keyframes badgePop {
-          0%   { opacity:0; transform:scale(0.7) translateY(-10px); }
-          70%  { transform:scale(1.05) translateY(0); }
-          100% { opacity:1; transform:scale(1) translateY(0); }
+        @keyframes glowBreathe {
+          0%,100% { opacity:0.55; transform:scale(1); }
+          50%     { opacity:1;    transform:scale(1.12); }
         }
-        @keyframes glowBreath {
-          0%,100% { opacity:0.5; transform:scale(1); }
-          50%     { opacity:0.9; transform:scale(1.08); }
+        @keyframes badgeIn {
+          from { opacity:0; transform:scale(0.75) translateY(-12px); }
+          70%  { transform:scale(1.05); }
+          to   { opacity:1; transform:scale(1) translateY(0); }
         }
-        @keyframes scrollBounce {
-          0%,100% { transform:translateY(0); }
-          50%     { transform:translateY(8px); }
+        @keyframes titleIn {
+          from { opacity:0; transform:translateY(90px) skewY(4deg); filter:blur(6px); }
+          to   { opacity:1; transform:translateY(0)    skewY(0deg); filter:blur(0); }
         }
-        @keyframes statIn {
-          from { opacity:0; transform:translateX(-20px); }
-          to   { opacity:1; transform:translateX(0); }
+        @keyframes lineGrow {
+          from { width:0; opacity:0; }
+          to   { width:100%; opacity:1; }
         }
-        @keyframes numberCount {
-          from { opacity:0; transform:scale(0.5); }
-          to   { opacity:1; transform:scale(1); }
+        @keyframes dotPulse {
+          0%,100% { transform:scale(1);    opacity:0.8; }
+          50%     { transform:scale(1.6);  opacity:1; }
         }
-        @keyframes borderPulse {
-          0%,100% { border-color: rgba(59,130,246,0.3); }
-          50%     { border-color: rgba(96,165,250,0.7); }
+        @keyframes statPop {
+          from { opacity:0; transform:translateY(30px) scale(0.85); }
+          to   { opacity:1; transform:translateY(0)    scale(1); }
         }
-        .cta-primary { transition: all 0.35s cubic-bezier(0.23,1,0.32,1); }
+        @keyframes orbFloat {
+          0%,100% { transform:translateY(0) rotate(0deg); }
+          33%     { transform:translateY(-18px) rotate(3deg); }
+          66%     { transform:translateY(-10px) rotate(-2deg); }
+        }
+        @keyframes ringSpinCW  { from{transform:rotate(0deg)}   to{transform:rotate(360deg)} }
+        @keyframes ringSpinCCW { from{transform:rotate(0deg)}   to{transform:rotate(-360deg)} }
+        @keyframes shimmer {
+          0%   { background-position: 200% center; }
+          100% { background-position:-200% center; }
+        }
+
+        .hero-title {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(5rem, 13vw, 11rem);
+          line-height: 0.88;
+          letter-spacing: 0.01em;
+          background: linear-gradient(170deg, #ffffff 0%, #dbeafe 25%, #93c5fd 55%, #3b82f6 80%, #1d4ed8 100%);
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmer 6s linear infinite;
+        }
+
+        .hero-title-accent {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(5rem, 13vw, 11rem);
+          line-height: 0.88;
+          letter-spacing: 0.01em;
+          background: linear-gradient(135deg, #22d3ee, #60a5fa, #818cf8, #22d3ee);
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: shimmer 4s linear infinite;
+        }
+
+        .cta-primary {
+          font-family: 'Inter', sans-serif;
+          display:flex; align-items:center; gap:10px;
+          padding: 18px 46px; border-radius:14px;
+          background: linear-gradient(135deg, #1e3a8a, #1d4ed8, #2563eb, #3b82f6);
+          color:white; font-weight:700; font-size:14px;
+          border: 1px solid rgba(147,197,253,0.3);
+          cursor:pointer; letter-spacing:0.06em; text-transform:uppercase;
+          box-shadow: 0 0 0 1px rgba(37,99,235,0.3), 0 8px 40px rgba(37,99,235,0.55), inset 0 1px 0 rgba(255,255,255,0.12);
+          transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+          position:relative; overflow:hidden;
+        }
+        .cta-primary::before {
+          content:''; position:absolute; inset:0;
+          background: linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
+          pointer-events:none;
+        }
         .cta-primary:hover {
-          transform: translateY(-4px) scale(1.04) !important;
-          box-shadow: 0 20px 60px rgba(59,130,246,0.6) !important;
+          transform: translateY(-5px) scale(1.04) !important;
+          box-shadow: 0 0 0 2px rgba(99,179,237,0.6), 0 20px 70px rgba(37,99,235,0.75), inset 0 1px 0 rgba(255,255,255,0.2) !important;
         }
-        .cta-secondary { transition: all 0.35s cubic-bezier(0.23,1,0.32,1); }
+        .cta-secondary {
+          font-family: 'Inter', sans-serif;
+          padding:18px 46px; border-radius:14px;
+          background: rgba(255,255,255,0.04);
+          color:#cbd5e1; font-weight:600; font-size:14px;
+          border:1px solid rgba(255,255,255,0.13);
+          cursor:pointer; letter-spacing:0.06em; text-transform:uppercase;
+          backdrop-filter:blur(20px);
+          transition: all 0.4s cubic-bezier(0.23,1,0.32,1);
+        }
         .cta-secondary:hover {
-          background: rgba(255,255,255,0.1) !important;
-          transform: translateY(-4px) !important;
-          border-color: rgba(255,255,255,0.5) !important;
+          background: rgba(59,130,246,0.12) !important;
+          border-color: rgba(96,165,250,0.45) !important;
+          transform: translateY(-5px) !important;
+          box-shadow: 0 10px 40px rgba(59,130,246,0.2) !important;
         }
-        .stat-item:hover .stat-num {
-          text-shadow: 0 0 30px rgba(96,165,250,0.9) !important;
-          transform: scale(1.1);
+        .stat-card {
+          transition: all 0.35s cubic-bezier(0.23,1,0.32,1);
+          cursor:default;
         }
-        .stat-num { transition: all 0.3s ease; display:inline-block; }
+        .stat-card:hover {
+          transform: translateY(-8px) scale(1.06) !important;
+          border-color: rgba(99,179,237,0.5) !important;
+          box-shadow: 0 16px 50px rgba(37,99,235,0.3), inset 0 1px 0 rgba(255,255,255,0.08) !important;
+        }
       `}</style>
 
-      {/* Canvas */}
-      <canvas ref={canvasRef} style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }} />
+      {/* FULL COVERAGE CANVAS */}
+      <canvas ref={canvasRef} style={{
+        position: 'absolute', top: 0, left: 0,
+        width: '100%', height: '100%',
+        zIndex: 0, pointerEvents: 'none',
+        display: 'block',
+      }} />
 
-      {/* Ambient glows */}
-      <div style={{ position:'absolute', width:800, height:800, borderRadius:'50%', background:'radial-gradient(circle, rgba(29,78,216,0.14) 0%, transparent 65%)', top:'-20%', left:'-15%', zIndex:0, animation:'glowBreath 8s ease-in-out infinite', pointerEvents:'none' }} />
-      <div style={{ position:'absolute', width:600, height:600, borderRadius:'50%', background:'radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 65%)', bottom:'-15%', right:'-10%', zIndex:0, animation:'glowBreath 10s ease-in-out infinite 2s', pointerEvents:'none' }} />
+      {/* Large decorative floating orbs */}
+      <div style={{ position:'absolute', zIndex:1, top:'12%', right:'7%', pointerEvents:'none', animation:'orbFloat 7s ease-in-out infinite' }}>
+        <div style={{
+          width:140, height:140, borderRadius:'50%',
+          background:'radial-gradient(circle at 35% 35%, rgba(59,130,246,0.4) 0%, rgba(29,78,216,0.15) 50%, transparent 100%)',
+          border:'1px solid rgba(99,179,237,0.3)',
+          boxShadow:'0 0 50px rgba(37,99,235,0.3), 0 0 100px rgba(37,99,235,0.1), inset 0 0 40px rgba(37,99,235,0.1)',
+          animation:'ringSpinCW 30s linear infinite',
+          position:'relative',
+        }}>
+          <div style={{ position:'absolute', inset:16, borderRadius:'50%', border:'1px dashed rgba(147,197,253,0.25)', animation:'ringSpinCCW 20s linear infinite' }} />
+          <div style={{ position:'absolute', top:'10%', left:'50%', transform:'translateX(-50%)', width:8, height:8, borderRadius:'50%', background:'#60a5fa', boxShadow:'0 0 16px #60a5fa, 0 0 32px rgba(96,165,250,0.6)' }} />
+        </div>
+      </div>
 
-      {/* Vertical lines */}
-      {[15, 35, 65, 85].map((left, i) => (
-        <div key={i} style={{
-          position:'absolute', top:0, bottom:0, left:`${left}%`, width:1,
-          background:`linear-gradient(to bottom, transparent, rgba(59,130,246,${0.04 + i * 0.01}), transparent)`,
-          zIndex:0, pointerEvents:'none',
+      <div style={{ position:'absolute', zIndex:1, bottom:'22%', left:'6%', pointerEvents:'none', animation:'orbFloat 9s ease-in-out infinite 1.5s' }}>
+        <div style={{
+          width:100, height:100, borderRadius:'50%',
+          background:'radial-gradient(circle at 35% 35%, rgba(34,211,238,0.3) 0%, rgba(6,182,212,0.1) 50%, transparent 100%)',
+          border:'1px solid rgba(34,211,238,0.25)',
+          boxShadow:'0 0 40px rgba(34,211,238,0.2), inset 0 0 30px rgba(34,211,238,0.08)',
+          animation:'ringSpinCCW 25s linear infinite',
+          position:'relative',
+        }}>
+          <div style={{ position:'absolute', top:'8%', left:'50%', transform:'translateX(-50%)', width:6, height:6, borderRadius:'50%', background:'#22d3ee', boxShadow:'0 0 14px #22d3ee' }} />
+        </div>
+      </div>
+
+      <div style={{ position:'absolute', zIndex:1, top:'55%', right:'4%', pointerEvents:'none', animation:'orbFloat 6s ease-in-out infinite 3s' }}>
+        <div style={{
+          width:65, height:65, borderRadius:'50%',
+          background:'radial-gradient(circle, rgba(129,140,248,0.25) 0%, transparent 70%)',
+          border:'1px solid rgba(129,140,248,0.2)',
+          boxShadow:'0 0 25px rgba(129,140,248,0.2)',
         }} />
-      ))}
+      </div>
 
-      {/* Main content */}
-      <div style={{ position:'relative', zIndex:10, width:'100%', maxWidth:1100, margin:'0 auto', padding:'120px 32px 80px', textAlign:'center' }}>
+      {/* MAIN CONTENT */}
+      <div style={{ position:'relative', zIndex:10, width:'100%', maxWidth:1000, margin:'0 auto', padding:'120px 32px 80px', textAlign:'center' }}>
 
         {/* Badge */}
         <div style={{
-          display:'inline-flex', alignItems:'center', gap:8,
-          padding:'9px 22px', borderRadius:99, marginBottom:48,
-          background:'rgba(59,130,246,0.07)',
-          border:'1px solid rgba(59,130,246,0.25)',
-          backdropFilter:'blur(16px)',
+          display:'inline-flex', alignItems:'center', gap:10,
+          padding:'10px 26px', borderRadius:99, marginBottom:44,
+          background:'linear-gradient(135deg,rgba(37,99,235,0.15),rgba(34,211,238,0.07))',
+          border:'1px solid rgba(59,130,246,0.32)',
+          backdropFilter:'blur(24px)',
+          boxShadow:'0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06)',
           opacity: loaded ? 1 : 0,
-          animation: loaded ? 'badgePop 0.7s cubic-bezier(0.23,1,0.32,1) forwards' : 'none',
+          animation: loaded ? 'badgeIn 0.8s cubic-bezier(0.23,1,0.32,1) 0.1s both' : 'none',
         }}>
-          <Sparkles size={13} color="#60a5fa" />
-          <span style={{ fontSize:12, color:'#93c5fd', fontWeight:600, letterSpacing:'0.1em', textTransform:'uppercase' }}>
+          <Sparkles size={14} color="#22d3ee" />
+          <span style={{ fontSize:11, color:'#7dd3fc', fontWeight:700, letterSpacing:'0.14em', textTransform:'uppercase', fontFamily:"'Inter',sans-serif" }}>
             Full-Stack Web Development Agency
           </span>
-          <div style={{ width:6, height:6, borderRadius:'50%', background:'#3b82f6', animation:'glowBreath 2s infinite' }} />
+          <span style={{ width:7, height:7, borderRadius:'50%', background:'#22d3ee', display:'inline-block', boxShadow:'0 0 12px #22d3ee', animation:'dotPulse 2s infinite' }} />
         </div>
 
-        {/* Word-by-word title */}
-        <h1 style={{
-          fontFamily:" 'Syne', sans-serif",
-          fontSize:'clamp(3rem, 8vw, 6.5rem)',
-          fontWeight:800, lineHeight:1.0,
-          letterSpacing:'-0.04em', marginBottom:0,
-          perspective:800,
-        }}>
-          {words.map((word, i) => (
-            <span key={i} style={{ display:'inline-block', overflow:'hidden', marginRight:'0.25em', verticalAlign:'bottom' }}>
-              <span style={{
-                display:'inline-block',
-                opacity: loaded ? 1 : 0,
-                animation: loaded ? `wordReveal 0.8s cubic-bezier(0.23,1,0.32,1) ${0.3 + i * 0.12}s both` : 'none',
-                background: i % 3 === 2
-                  ? 'linear-gradient(135deg,#60a5fa,#3b82f6)'
-                  :'none',
-                WebkitBackgroundClip: i % 3 === 2 ? 'text' : undefined,
-                WebkitTextFillColor: i % 3 === 2 ? 'transparent' : undefined,
-              }}>
-                {word}
-              </span>
-            </span>
-          ))}
-        </h1>
+        {/* HUGE TITLE */}
+        <div style={{ marginBottom:30, overflow:'hidden' }}>
+          <div style={{
+            opacity: loaded ? 1 : 0,
+            animation: loaded ? 'titleIn 1s cubic-bezier(0.16,1,0.3,1) 0.25s both' : 'none',
+          }}>
+            {/* Line 1 */}
+            <div style={{ display:'block' }}>
+              <span className="hero-title">{t('hero_title').split(' ').slice(0,3).join(' ')}</span>
+            </div>
+            {/* Line 2 accent */}
+            <div style={{ display:'block', marginTop:'-0.05em' }}>
+              <span className="hero-title-accent">{t('hero_title').split(' ').slice(3).join(' ') || 'Solutions'}</span>
+            </div>
+          </div>
+        </div>
 
-        {/* Animated underline */}
+        {/* Glowing separator */}
         <div style={{
-          height:3, width:160, margin:'24px auto 32px',
-          background:'linear-gradient(90deg,#1d4ed8,#60a5fa,#93c5fd)',
-          borderRadius:99, transformOrigin:'left',
+          display:'flex', alignItems:'center', justifyContent:'center', gap:16, marginBottom:28,
           opacity: loaded ? 1 : 0,
-          animation: loaded ? 'lineGrow 1s cubic-bezier(0.23,1,0.32,1) 0.9s both' : 'none',
-        }} />
+          animation: loaded ? 'fadeUp 0.7s ease 0.8s both' : 'none',
+        }}>
+          <div style={{ flex:1, maxWidth:120, height:1, background:'linear-gradient(90deg,transparent,rgba(59,130,246,0.7))' }} />
+          <div style={{ display:'flex', gap:8, alignItems:'center' }}>
+            {[['#3b82f6','2s'],['#22d3ee','2.3s'],['#818cf8','2.6s']].map(([c,d],i)=>(
+              <div key={i} style={{ width:7, height:7, borderRadius:'50%', background:c as string, boxShadow:`0 0 14px ${c}, 0 0 28px ${c}55`, animation:`dotPulse 2s infinite ${d}` }} />
+            ))}
+          </div>
+          <div style={{ flex:1, maxWidth:120, height:1, background:'linear-gradient(90deg,rgba(59,130,246,0.7),transparent)' }} />
+        </div>
 
         {/* Subtitle */}
         <p style={{
-          fontFamily:"'DM Sans', sans-serif",
-          fontSize:'clamp(1.1rem,2.5vw,1.4rem)', color:'#7dd3fc',
-          fontWeight:500, marginBottom:16,
+          fontSize:'clamp(1.1rem,2.2vw,1.35rem)', color:'#7dd3fc', fontWeight:500,
+          marginBottom:12, fontFamily:"'Inter',sans-serif",
           opacity: loaded ? 1 : 0,
-          animation: loaded ? 'fadeSlideUp 0.8s ease 1.1s both' : 'none',
+          animation: loaded ? 'fadeUp 0.7s ease 0.9s both' : 'none',
         }}>
           {t('hero_subtitle')}
         </p>
-
         <p style={{
-          fontFamily:"'DM Sans', sans-serif",
-          fontSize:'clamp(0.9rem,1.8vw,1.1rem)', color:'#64748b',
-          maxWidth:580, margin:'0 auto 48px', lineHeight:1.8,
+          fontSize:'clamp(0.92rem,1.6vw,1.08rem)', color:'rgba(148,163,184,0.8)',
+          maxWidth:560, margin:'0 auto 52px', lineHeight:1.9,
+          fontFamily:"'Inter',sans-serif",
           opacity: loaded ? 1 : 0,
-          animation: loaded ? 'fadeSlideUp 0.8s ease 1.25s both' : 'none',
+          animation: loaded ? 'fadeUp 0.7s ease 1.05s both' : 'none',
         }}>
           {t('hero_description')}
         </p>
 
         {/* CTAs */}
         <div style={{
-          display:'flex', gap:14, justifyContent:'center', flexWrap:'wrap', marginBottom:80,
+          display:'flex', gap:16, justifyContent:'center', flexWrap:'wrap', marginBottom:72,
           opacity: loaded ? 1 : 0,
-          animation: loaded ? 'fadeSlideUp 0.8s ease 1.4s both' : 'none',
+          animation: loaded ? 'fadeUp 0.7s ease 1.2s both' : 'none',
         }}>
-          <button className="cta-primary" onClick={() => scrollToSection('contact')} style={{
-            display:'flex', alignItems:'center', gap:10,
-            padding:'15px 38px', borderRadius:10,
-            background:'linear-gradient(135deg,#1e40af,#2563eb,#3b82f6)',
-            color:'white', fontWeight:700, fontSize:14,
-            border:'none', cursor:'pointer',
-            boxShadow:'0 8px 32px rgba(37,99,235,0.45)',
-            letterSpacing:'0.04em', textTransform:'uppercase',
-            fontFamily:"'DM Sans', sans-serif",
-          }}>
-            {t('hero_cta_primary')} <ArrowRight size={16} />
+          <button className="cta-primary" onClick={() => scrollToSection('contact')}>
+            {t('hero_cta_primary')} <ArrowRight size={17} />
           </button>
-
-          <button className="cta-secondary" onClick={() => scrollToSection('portfolio')} style={{
-            padding:'15px 38px', borderRadius:10,
-            background:'transparent',
-            color:'#e2e8f0', fontWeight:600, fontSize:14,
-            border:'1px solid rgba(255,255,255,0.2)',
-            cursor:'pointer',
-            letterSpacing:'0.04em', textTransform:'uppercase',
-            fontFamily:"'DM Sans', sans-serif",
-          }}>
+          <button className="cta-secondary" onClick={() => scrollToSection('portfolio')}>
             {t('hero_cta_secondary')}
           </button>
         </div>
 
-        {/* Stats — horizontal with dividers */}
+        {/* Stats */}
         <div style={{
-          display:'flex', alignItems:'center', justifyContent:'center',
-          gap:0, flexWrap:'wrap',
-          opacity: loaded ? 1 : 0,
-          animation: loaded ? 'fadeSlideUp 0.8s ease 1.6s both' : 'none',
-          padding:'28px 40px',
-          background:'rgba(255,255,255,0.02)',
-          border:'1px solid rgba(59,130,246,0.12)',
-          borderRadius:20, backdropFilter:'blur(20px)',
-          maxWidth:720, margin:'0 auto',
-          animation: loaded ? 'fadeSlideUp 0.8s ease 1.6s both, borderPulse 4s ease-in-out infinite 2s' : 'none',
+          display:'grid', gridTemplateColumns:'repeat(4,1fr)',
+          gap:16, maxWidth:800, margin:'0 auto',
         }}>
-          {[
-            { value:'50+', label: t('trust_clients') },
-            { value:'100+', label: t('trust_projects') },
-            { value:'5+', label: t('trust_experience') },
-            { value:'98%', label: t('trust_satisfaction') },
-          ].map((s, i) => (
-            <>
-              <div key={i} className="stat-item" style={{ flex:1, textAlign:'center', padding:'0 24px', minWidth:120 }}>
-                <div className="stat-num" style={{
-                  fontFamily:"'Syne', sans-serif",
-                  fontSize:'clamp(1.8rem,3.5vw,2.6rem)', fontWeight:800,
-                  color:'#60a5fa', lineHeight:1,
-                  textShadow:'0 0 20px rgba(96,165,250,0.4)',
-                  animation: loaded ? `numberCount 0.6s cubic-bezier(0.23,1,0.32,1) ${1.6 + i * 0.15}s both` : 'none',
-                }}>
-                  {s.value}
-                </div>
-                <div style={{
-                  fontSize:11, color:'#475569', marginTop:6,
-                  fontWeight:600, letterSpacing:'0.1em', textTransform:'uppercase',
-                  fontFamily:"'DM Sans', sans-serif",
-                }}>
-                  {s.label}
-                </div>
+          {stats.map((s,i) => (
+            <div key={i} className="stat-card" style={{
+              padding:'26px 14px', textAlign:'center',
+              background:'linear-gradient(160deg,rgba(10,20,55,0.85),rgba(8,15,40,0.75))',
+              border:'1px solid rgba(59,130,246,0.18)',
+              borderRadius:20, backdropFilter:'blur(28px)',
+              boxShadow:'0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)',
+              opacity: loaded ? 1 : 0,
+              animation: loaded ? `statPop 0.8s cubic-bezier(0.23,1,0.32,1) ${1.4+i*0.1}s both` : 'none',
+              position:'relative', overflow:'hidden',
+            }}>
+              {/* Glow top accent */}
+              <div style={{ position:'absolute', top:0, left:'20%', right:'20%', height:1, background:'linear-gradient(90deg,transparent,rgba(96,165,250,0.6),transparent)' }} />
+              <div style={{
+                fontSize:'clamp(2rem,4.5vw,2.8rem)', fontWeight:900, lineHeight:1,
+                letterSpacing:'-0.03em', marginBottom:8,
+                background:'linear-gradient(160deg,#ffffff,#93c5fd)',
+                WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
+                fontFamily:"'Inter',sans-serif",
+                textShadow:'none',
+                filter:'drop-shadow(0 0 20px rgba(96,165,250,0.4))',
+              }}>
+                {s.value}
               </div>
-              {i < 3 && (
-                <div key={`div-${i}`} style={{ width:1, height:48, background:'rgba(59,130,246,0.15)', flexShrink:0 }} />
-              )}
-            </>
+              <div style={{ fontSize:10, color:'#475569', fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', fontFamily:"'Inter',sans-serif" }}>
+                {s.label}
+              </div>
+            </div>
           ))}
-        </div>
-
-        {/* Scroll hint */}
-        <div style={{
-          marginTop:56, display:'flex', flexDirection:'column', alignItems:'center', gap:8,
-          opacity: loaded ? 0.4 : 0,
-          animation: loaded ? 'fadeSlideUp 0.8s ease 2s both' : 'none',
-        }}>
-          <span style={{ fontSize:10, letterSpacing:'0.2em', textTransform:'uppercase', color:'#475569', fontFamily:"'DM Sans', sans-serif" }}>Scroll</span>
-          <div style={{ width:1, height:40, background:'linear-gradient(to bottom, rgba(59,130,246,0.6), transparent)', animation:'scrollBounce 2s ease-in-out infinite' }} />
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div style={{ position:'absolute', bottom:0, left:0, right:0, height:140, background:'linear-gradient(to top,white,transparent)', zIndex:5, pointerEvents:'none' }} />
+      {/* Bottom fade to white */}
+      <div style={{ position:'absolute', bottom:0, left:0, right:0, height:180, background:'linear-gradient(to top,white 0%,rgba(255,255,255,0.8) 40%,transparent 100%)', zIndex:5, pointerEvents:'none' }} />
     </section>
   );
 }
