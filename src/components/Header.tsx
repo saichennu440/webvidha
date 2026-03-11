@@ -82,7 +82,7 @@ export default function Header() {
                 key={index}
                 onClick={() => item.id ? scrollToSection(item.id) : item.action?.()}
                 className={`font-medium transition-colors hover:text-blue-600 ${
-                  isScrolled ? 'text-slate-700' : 'text-white hover:text-blue-300'
+                  isScrolled ? 'text-nunito-700' : 'text-white hover:text-blue-300'
                 }`}
               >
                 {item.label}
@@ -95,7 +95,7 @@ export default function Header() {
                 onClick={() => setIsLangOpen(prev => !prev)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   isScrolled
-                    ? 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                    ? 'bg-slate-100 text-nunito-700 hover:bg-slate-200'
                     : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                 }`}
               >
@@ -109,7 +109,7 @@ export default function Header() {
               </button>
 
               {isLangOpen && (
-                <div className="absolute right-0 mt-2 w-44 rounded-xl shadow-lg bg-white border border-slate-100 overflow-hidden z-50">
+                <div className="absolute right-0 mt-2 w-44 rounded-xl shadow-lg bg-white border border-nunito-100 overflow-hidden z-50">
                   {LANGUAGE_OPTIONS.map(opt => (
                     <button
                       key={opt.code}
@@ -120,11 +120,11 @@ export default function Header() {
                       className={`w-full flex items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-slate-50 ${
                         language === opt.code
                           ? 'text-blue-600 font-semibold bg-blue-50'
-                          : 'text-slate-700'
+                          : 'text-nunito-700'
                       }`}
                     >
                       <span>{opt.nativeLabel}</span>
-                      <span className="text-xs text-slate-400">{opt.label}</span>
+                      <span className="text-xs text-nunito-400">{opt.label}</span>
                     </button>
                   ))}
                 </div>
@@ -136,7 +136,7 @@ export default function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`md:hidden p-2 rounded-lg transition-colors ${
-              isScrolled ? 'text-slate-900' : 'text-white'
+              isScrolled ? 'text-nunito-900' : 'text-white'
             }`}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -152,15 +152,15 @@ export default function Header() {
               <button
                 key={index}
                 onClick={() => item.id ? scrollToSection(item.id) : item.action?.()}
-                className="block w-full text-left px-4 py-2 text-slate-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
+                className="block w-full text-left px-4 py-2 text-nunito-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors font-medium"
               >
                 {item.label}
               </button>
             ))}
 
             {/* Mobile Language Options */}
-            <div className="pt-2 border-t border-slate-100">
-              <div className="flex items-center gap-2 px-4 pb-2 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+            <div className="pt-2 border-t border-nunito-100">
+              <div className="flex items-center gap-2 px-4 pb-2 text-xs font-semibold text-nunito-400 uppercase tracking-wider">
                 <Globe className="w-3 h-3" />
                 Language
               </div>
@@ -175,11 +175,11 @@ export default function Header() {
                     className={`flex flex-col items-start px-4 py-2.5 rounded-lg text-sm transition-colors font-medium ${
                       language === opt.code
                         ? 'bg-blue-50 text-blue-600 border border-blue-200'
-                        : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
+                        : 'bg-slate-50 text-nunito-700 hover:bg-slate-100'
                     }`}
                   >
                     <span>{opt.nativeLabel}</span>
-                    <span className="text-xs text-slate-400 font-normal">{opt.label}</span>
+                    <span className="text-xs text-nunito-400 font-normal">{opt.label}</span>
                   </button>
                 ))}
               </div>

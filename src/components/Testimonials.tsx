@@ -29,10 +29,10 @@ export default function Testimonials() {
     <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-nunito-900 mb-4">
             {t('testimonials_title')}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-nunito-600 max-w-3xl mx-auto">
             {t('testimonials_subtitle')}
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="bg-gradient-to-br from-nunito-50 to-blue-50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <div className="mb-6">
                 <Quote className="w-10 h-10 text-blue-500 opacity-50" />
@@ -53,7 +53,7 @@ export default function Testimonials() {
                 ))}
               </div>
 
-              <p className="text-slate-700 leading-relaxed mb-6">
+              <p className="text-nunito text-700 leading-relaxed mb-6">
                 {testimonial.text}
               </p>
 
@@ -64,10 +64,10 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-semibold text-slate-900">
+                  <div className="font-semibold text-nunito-900">
                     {testimonial.author}
                   </div>
-                  <div className="text-sm text-slate-600">
+                  <div className="text-sm text-nunito-600">
                     {testimonial.role}
                   </div>
                 </div>

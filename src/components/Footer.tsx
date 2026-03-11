@@ -22,7 +22,7 @@ export default function Footer() {
             <button onClick={scrollToTop} className="flex items-center gap-2 mb-4 group">
               <img src = '/webvidha-high-resolution-logo-transparent.png' alt="Logo" className="w-18 h-10 transition-transform duration-300 group-hover:scale-110" />
             </button>
-            <p className="text-slate-400 mb-6">
+            <p className="text-nunito-400 mb-6">
               {t('footer_tagline')}
             </p>
             <div className="flex gap-4">
@@ -67,7 +67,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('service1_title')}
                 </button>
@@ -75,7 +75,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('service2_title')}
                 </button>
@@ -83,7 +83,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('service3_title')}
                 </button>
@@ -91,7 +91,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('service5_title')}
                 </button>
@@ -105,7 +105,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={scrollToTop}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('footer_about')}
                 </button>
@@ -113,7 +113,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection('portfolio')}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('nav_portfolio')}
                 </button>
@@ -121,7 +121,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={scrollToTop}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('footer_careers')}
                 </button>
@@ -129,7 +129,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={scrollToTop}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('footer_blog')}
                 </button>
@@ -144,7 +144,7 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${t('contact_info_email')}`}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('contact_info_email')}
                 </a>
@@ -153,14 +153,14 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                 <a
                   href={`tel:${t('contact_info_phone')}`}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-nunito-400 hover:text-white transition-colors"
                 >
                   {t('contact_info_phone')}
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                <span className="text-slate-400">
+                <span className="text-nunito-400">
                   {t('contact_info_location')}
                 </span>
               </li>
@@ -168,8 +168,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8">
-          <div className="text-center text-slate-400">
+        <div className="border-t border-nunito-800 pt-8">
+          <div className="text-center text-nunito-400">
             <p>{t('footer_copyright')}</p>
           </div>
         </div>

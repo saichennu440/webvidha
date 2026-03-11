@@ -46,10 +46,10 @@ const handleSubmit = async (e: React.FormEvent) => {
     <section id="contact" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-nunito-900 mb-4">
             {t('contact_title')}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-nunito-600 max-w-3xl mx-auto">
             {t('contact_subtitle')}
           </p>
         </div>
@@ -58,7 +58,7 @@ const handleSubmit = async (e: React.FormEvent) => {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-nunito-900 mb-2">
                   {t('contact_name')}
                 </label>
                 <input
@@ -68,12 +68,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-lg border border-nunito-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-nunito-900 mb-2">
                   {t('contact_email')}
                 </label>
                 <input
@@ -83,12 +83,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-lg border border-nunito-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label htmlFor="phone" className="block text-sm font-semibold text-nunito-900 mb-2">
                   {t('contact_phone')}
                 </label>
                 <input
@@ -98,12 +98,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-lg border border-nunito-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label htmlFor="service" className="block text-sm font-semibold text-nunito-900 mb-2">
                   {t('contact_service')}
                 </label>
                 <select
@@ -112,7 +112,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   value={formData.service}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-lg border border-nunito-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                 >
                   <option value="">Select a service</option>
                   <option value="web-design">{t('contact_service_web')}</option>
@@ -125,7 +125,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-nunito-900 mb-2">
                   {t('contact_message')}
                 </label>
                 <textarea
@@ -135,7 +135,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-nunito-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
                 />
               </div>
 
@@ -152,7 +152,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">
+              <h3 className="text-2xl font-bold text-nunito-900 mb-6">
                 {t('contact_info_title')}
               </h3>
               <div className="space-y-6">
@@ -161,8 +161,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <Mail className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Email</div>
-                    <a href={`mailto:${t('contact_info_email')}`} className="text-slate-600 hover:text-blue-600 transition-colors">
+                    <div className="font-semibold text-nunito-900 mb-1">Email</div>
+                    <a href={`mailto:${t('contact_info_email')}`} className="text-nunito-600 hover:text-blue-600 transition-colors">
                       {t('contact_info_email')}
                     </a>
                   </div>
@@ -173,8 +173,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <Phone className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Phone</div>
-                    <a href={`tel:${t('contact_info_phone')}`} className="text-slate-600 hover:text-blue-600 transition-colors">
+                    <div className="font-semibold text-nunito-900 mb-1">Phone</div>
+                    <a href={`tel:${t('contact_info_phone')}`} className="text-nunito-600 hover:text-blue-600 transition-colors">
                       {t('contact_info_phone')}
                     </a>
                   </div>
@@ -185,8 +185,8 @@ const handleSubmit = async (e: React.FormEvent) => {
                     <MapPin className="w-6 h-6 text-orange-600" />
                   </div>
                   <div>
-                    <div className="font-semibold text-slate-900 mb-1">Location</div>
-                    <div className="text-slate-600">
+                    <div className="font-semibold text-nunito-900 mb-1">Location</div>
+                    <div className="text-nunito-600">
                       {t('contact_info_location')}
                     </div>
                   </div>
@@ -195,10 +195,10 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8">
-              <h4 className="text-xl font-bold text-slate-900 mb-4">
+              <h4 className="text-xl font-bold text-nunito-900 mb-4">
                 Why Choose Webvidha?
               </h4>
-              <ul className="space-y-3 text-slate-700">
+              <ul className="space-y-3 text-nunito-700">
                 <li className="flex items-start gap-2">
                   <span className="text-blue-600 font-bold">•</span>
                   <span>5+ years of industry experience</span>

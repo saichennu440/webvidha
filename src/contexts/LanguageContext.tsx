@@ -78,6 +78,7 @@ const translations = {
     pricing_basic_feature3: 'Contact form',
     pricing_basic_feature4: 'SEO optimization',
     pricing_basic_feature5: '30 days support',
+    pricing_basic_feature6: 'provided hosting-999/Year',
 
     pricing_standard_title: 'Standard',
     pricing_standard_price: '15,000',
@@ -88,6 +89,7 @@ const translations = {
     pricing_standard_feature4: 'Advanced SEO',
     pricing_standard_feature5: '90 days support',
     pricing_standard_feature6: 'Social media integration',
+    pricing_standard_feature7: 'provided hosting-699/Year',
 
     pricing_premium_title: 'Premium',
     pricing_premium_price: '30,000',
@@ -99,6 +101,7 @@ const translations = {
     pricing_premium_feature5: '6 months support',
     pricing_premium_feature6: 'Performance optimization',
     pricing_premium_feature7: 'Priority support',
+    pricing_premium_feature8: 'Free hosting',
 
     pricing_custom_title: 'Custom Projects',
     pricing_custom_desc: 'Tailored solutions for unique requirements',
@@ -206,16 +209,17 @@ const translations = {
     pricing_contact: 'మమ్మల్ని సంప్రదించండి',
 
     pricing_basic_title: 'బేసిక్',
-    pricing_basic_price: '25,000',
+    pricing_basic_price: '5,000',
     pricing_basic_desc: 'చిన్న వ్యాపారాలు మరియు స్టార్టప్‌లకు పర్ఫెక్ట్',
     pricing_basic_feature1: '5 పేజీల వరకు',
     pricing_basic_feature2: 'రెస్పాన్సివ్ డిజైన్',
     pricing_basic_feature3: 'కాంటాక్ట్ ఫారమ్',
     pricing_basic_feature4: 'SEO ఆప్టిమైజేషన్',
     pricing_basic_feature5: '30 రోజుల మద్దతు',
+    pricing_basic_feature6: 'హోస్టింగ్ సౌకర్యం - సంవత్సరానికి 999',
 
     pricing_standard_title: 'స్టాండర్డ్',
-    pricing_standard_price: '50,000',
+    pricing_standard_price: '15,000',
     pricing_standard_desc: 'పెరుగుతున్న వ్యాపారాలకు అనువైనది',
     pricing_standard_feature1: '10 పేజీల వరకు',
     pricing_standard_feature2: 'కస్టమ్ డిజైన్',
@@ -223,9 +227,10 @@ const translations = {
     pricing_standard_feature4: 'అడ్వాన్స్‌డ్ SEO',
     pricing_standard_feature5: '90 రోజుల మద్దతు',
     pricing_standard_feature6: 'సోషల్ మీడియా ఇంటిగ్రేషన్',
+    pricing_standard_feature7: 'హోస్టింగ్ సౌకర్యం - సంవత్సరానికి 699',
 
     pricing_premium_title: 'ప్రీమియం',
-    pricing_premium_price: '1,00,000',
+    pricing_premium_price: '30,000',
     pricing_premium_desc: 'స్థిరపడిన కంపెనీలకు',
     pricing_premium_feature1: 'అపరిమిత పేజీలు',
     pricing_premium_feature2: 'కస్టమ్ వెబ్ అప్లికేషన్',
@@ -234,6 +239,7 @@ const translations = {
     pricing_premium_feature5: '6 నెలల మద్దతు',
     pricing_premium_feature6: 'పెర్ఫార్మెన్స్ ఆప్టిమైజేషన్',
     pricing_premium_feature7: 'ప్రాధాన్యత మద్దతు',
+    pricing_premium_feature8: 'ఉచిత హోస్టింగ్',
 
     pricing_custom_title: 'కస్టమ్ ప్రాజెక్ట్‌లు',
     pricing_custom_desc: 'ప్రత్యేక అవసరాలకు తగిన పరిష్కారాలు',
@@ -348,6 +354,7 @@ const translations = {
     pricing_basic_feature3: 'संपर्क फ़ॉर्म',
     pricing_basic_feature4: 'SEO ऑप्टिमाइज़ेशन',
     pricing_basic_feature5: '30 दिन की सहायता',
+    pricing_basic_feature6: 'होस्टिंग-999/वर्ष',
 
     pricing_standard_title: 'स्टैंडर्ड',
     pricing_standard_price: '15,000',
@@ -358,6 +365,7 @@ const translations = {
     pricing_standard_feature4: 'एडवांस्ड SEO',
     pricing_standard_feature5: '90 दिन की सहायता',
     pricing_standard_feature6: 'सोशल मीडिया इंटीग्रेशन',
+    pricing_standard_feature7: 'होस्टिंग-699/वर्ष',
 
     pricing_premium_title: 'प्रीमियम',
     pricing_premium_price: '30,000',
@@ -369,6 +377,7 @@ const translations = {
     pricing_premium_feature5: '6 महीने की सहायता',
     pricing_premium_feature6: 'परफॉर्मेंस ऑप्टिमाइज़ेशन',
     pricing_premium_feature7: 'प्राथमिकता सहायता',
+    pricing_premium_feature8: 'मुफ़्त होस्टिंग',
 
     pricing_custom_title: 'कस्टम प्रोजेक्ट्स',
     pricing_custom_desc: 'अनूठी आवश्यकताओं के लिए अनुकूलित समाधान',
@@ -483,6 +492,7 @@ const translations = {
     pricing_basic_feature3: 'தொடர்பு படிவம்',
     pricing_basic_feature4: 'SEO உகப்பாக்கம்',
     pricing_basic_feature5: '30 நாள் ஆதரவு',
+    pricing_basic_feature6: 'ஹோஸ்டிங்-999/ஆண்டு',
 
     pricing_standard_title: 'நிலையான',
     pricing_standard_price: '15,000',
@@ -493,6 +503,7 @@ const translations = {
     pricing_standard_feature4: 'மேம்பட்ட SEO',
     pricing_standard_feature5: '90 நாள் ஆதரவு',
     pricing_standard_feature6: 'சமூக ஊடக ஒருங்கிணைப்பு',
+    pricing_standard_feature7: 'ஹோஸ்டிங்-699/ஆண்டு',
 
     pricing_premium_title: 'பிரீமியம்',
     pricing_premium_price: '30,000',
@@ -504,6 +515,7 @@ const translations = {
     pricing_premium_feature5: '6 மாத ஆதரவு',
     pricing_premium_feature6: 'செயல்திறன் உகப்பாக்கம்',
     pricing_premium_feature7: 'முன்னுரிமை ஆதரவு',
+    pricing_premium_feature8: 'இலவச ஹோஸ்டிங்',
 
     pricing_custom_title: 'தனிப்பயன் திட்டங்கள்',
     pricing_custom_desc: 'தனிப்பட்ட தேவைகளுக்கான தனிப்பயன் தீர்வுகள்',
@@ -618,6 +630,7 @@ const translations = {
     pricing_basic_feature3: 'ಸಂಪರ್ಕ ನಮೂನೆ',
     pricing_basic_feature4: 'SEO ಆಪ್ಟಿಮೈಸೇಶನ್',
     pricing_basic_feature5: '30 ದಿನಗಳ ಬೆಂಬಲ',
+    pricing_basic_feature6: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ - ವರ್ಷಕ್ಕೆ 999',
 
     pricing_standard_title: 'ಮಾನಕ',
     pricing_standard_price: '15,000',
@@ -628,6 +641,7 @@ const translations = {
     pricing_standard_feature4: 'ಸುಧಾರಿತ SEO',
     pricing_standard_feature5: '90 ದಿನಗಳ ಬೆಂಬಲ',
     pricing_standard_feature6: 'ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ ಏಕೀಕರಣ',
+    pricing_standard_feature7: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ - ವರ್ಷಕ್ಕೆ 699',
 
     pricing_premium_title: 'ಪ್ರೀಮಿಯಂ',
     pricing_premium_price: '30,000',
@@ -639,6 +653,7 @@ const translations = {
     pricing_premium_feature5: '6 ತಿಂಗಳ ಬೆಂಬಲ',
     pricing_premium_feature6: 'ಕಾರ್ಯಕ್ಷಮತೆ ಆಪ್ಟಿಮೈಸೇಶನ್',
     pricing_premium_feature7: 'ಆದ್ಯತೆಯ ಬೆಂಬಲ',
+    pricing_premium_feature8: 'ಉಚಿತ ಹೋಸ್ಟಿಂಗ್',
 
     pricing_custom_title: 'ಕಸ್ಟಮ್ ಯೋಜನೆಗಳು',
     pricing_custom_desc: 'ಅನನ್ಯ ಅಗತ್ಯಗಳಿಗೆ ಅನುಗುಣವಾದ ಪರಿಹಾರಗಳು',

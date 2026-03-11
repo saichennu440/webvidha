@@ -211,9 +211,7 @@ export default function Hero() {
       justifyContent: 'center',
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
-
-        @keyframes fadeRise {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');        @keyframes fadeRise {
           from { opacity:0; transform:translateY(48px) scale(0.97); filter:blur(8px); }
           to   { opacity:1; transform:translateY(0)    scale(1);    filter:blur(0); }
         }
@@ -259,28 +257,30 @@ export default function Hero() {
         }
 
         .hero-title {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(5rem, 13vw, 11rem);
-          line-height: 0.88;
-          letter-spacing: 0.01em;
-          background: linear-gradient(170deg, #ffffff 0%, #dbeafe 25%, #93c5fd 55%, #3b82f6 80%, #1d4ed8 100%);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: shimmer 6s linear infinite;
-        }
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);  /* slightly smaller since Nunito is wider than Bebas */
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  background: linear-gradient(170deg, #ffffff 0%, #dbeafe 25%, #93c5fd 55%, #3b82f6 80%, #1d4ed8 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
 
-        .hero-title-accent {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(5rem, 13vw, 11rem);
-          line-height: 0.88;
-          letter-spacing: 0.01em;
-          background: linear-gradient(135deg, #22d3ee, #60a5fa, #818cf8, #22d3ee);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: shimmer 4s linear infinite;
-        }
+.hero-title-accent {
+  font-family: 'Nunito', sans-serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #22d3ee, #60a5fa, #818cf8, #22d3ee);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
 
         .cta-primary {
           font-family: 'Inter', sans-serif;
@@ -461,41 +461,60 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Stats */}
-        <div style={{
-          display:'grid', gridTemplateColumns:'repeat(4,1fr)',
-          gap:16, maxWidth:800, margin:'0 auto',
-        }}>
-          {stats.map((s,i) => (
-            <div key={i} className="stat-card" style={{
-              padding:'26px 14px', textAlign:'center',
-              background:'linear-gradient(160deg,rgba(10,20,55,0.85),rgba(8,15,40,0.75))',
-              border:'1px solid rgba(59,130,246,0.18)',
-              borderRadius:20, backdropFilter:'blur(28px)',
-              boxShadow:'0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)',
-              opacity: loaded ? 1 : 0,
-              animation: loaded ? `statPop 0.8s cubic-bezier(0.23,1,0.32,1) ${1.4+i*0.1}s both` : 'none',
-              position:'relative', overflow:'hidden',
-            }}>
-              {/* Glow top accent */}
-              <div style={{ position:'absolute', top:0, left:'20%', right:'20%', height:1, background:'linear-gradient(90deg,transparent,rgba(96,165,250,0.6),transparent)' }} />
-              <div style={{
-                fontSize:'clamp(2rem,4.5vw,2.8rem)', fontWeight:900, lineHeight:1,
-                letterSpacing:'-0.03em', marginBottom:8,
-                background:'linear-gradient(160deg,#ffffff,#93c5fd)',
-                WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent',
-                fontFamily:"'Inter',sans-serif",
-                textShadow:'none',
-                filter:'drop-shadow(0 0 20px rgba(96,165,250,0.4))',
-              }}>
-                {s.value}
-              </div>
-              <div style={{ fontSize:10, color:'#475569', fontWeight:700, letterSpacing:'0.12em', textTransform:'uppercase', fontFamily:"'Inter',sans-serif" }}>
-                {s.label}
-              </div>
-            </div>
-          ))}
-        </div>
+{/* Stats */}
+<div style={{
+  display:'grid',
+  gridTemplateColumns:'repeat(2,1fr)',  // 2 columns on mobile
+  gap:12,
+  maxWidth:800,
+  margin:'0 auto',
+  width:'100%',
+}}>
+  {stats.map((s,i) => (
+    <div key={i} className="stat-card" style={{
+      padding:'22px 10px',
+      textAlign:'center',
+      background:'linear-gradient(160deg,rgba(10,20,55,0.85),rgba(8,15,40,0.75))',
+      border:'1px solid rgba(59,130,246,0.18)',
+      borderRadius:20,
+      backdropFilter:'blur(28px)',
+      boxShadow:'0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.05)',
+      opacity: loaded ? 1 : 0,
+      animation: loaded ? `statPop 0.8s cubic-bezier(0.23,1,0.32,1) ${1.4+i*0.1}s both` : 'none',
+      position:'relative',
+      overflow:'hidden',
+      minWidth:0,       // prevents overflow
+      wordBreak:'break-word',
+    }}>
+      <div style={{ position:'absolute', top:0, left:'20%', right:'20%', height:1, background:'linear-gradient(90deg,transparent,rgba(96,165,250,0.6),transparent)' }} />
+      <div style={{
+        fontSize:'clamp(1.6rem,7vw,2.8rem)',  // scales down on mobile
+        fontWeight:900,
+        lineHeight:1,
+        letterSpacing:'-0.03em',
+        marginBottom:8,
+        background:'linear-gradient(160deg,#ffffff,#93c5fd)',
+        WebkitBackgroundClip:'text',
+        WebkitTextFillColor:'transparent',
+        fontFamily:"'Inter',sans-serif",
+        filter:'drop-shadow(0 0 20px rgba(96,165,250,0.4))',
+      }}>
+        {s.value}
+      </div>
+      <div style={{
+        fontSize:'clamp(9px,2.5vw,10px)',     // scales on mobile
+        color:'#94a3b8',                       // slightly brighter for readability
+        fontWeight:700,
+        letterSpacing:'0.08em',
+        textTransform:'uppercase',
+        fontFamily:"'Inter',sans-serif",
+        lineHeight:1.4,
+      }}>
+        {s.label}
+      </div>
+    </div>
+  ))}
+</div>
       </div>
 
       {/* Bottom fade to white */}

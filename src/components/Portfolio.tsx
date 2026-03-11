@@ -74,10 +74,10 @@ const projects = [
     <section id="portfolio" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-nunito-900 mb-4">
             {t('portfolio_title')}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-nunito-600 max-w-3xl mx-auto">
             {t('portfolio_subtitle')}
           </p>
         </div>
@@ -108,14 +108,14 @@ const projects = [
                 <div className="text-sm font-semibold text-blue-600 mb-2">
                   {project.category}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                <h3 className="text-xl font-bold text-nunito-900 mb-3">
                   {project.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-slate-100 text-slate-700 text-sm rounded-full"
+                      className="px-3 py-1 bg-slate-100 text-nunito-700 text-sm rounded-full"
                     >
                       {tag}
                     </span>

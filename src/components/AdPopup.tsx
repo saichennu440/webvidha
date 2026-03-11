@@ -108,7 +108,7 @@ export function ContactForm({ onClose }: { onClose: () => void }) {
           <CheckCircle size={56} color="#34d399" strokeWidth={1.5} />
         </div>
         <h3 className="text-xl font-black text-white text-center">You're on the list! 🎉</h3>
-        <p className="text-slate-400 text-sm text-center max-w-xs">
+        <p className="text-nunito-400 text-sm text-center max-w-xs">
           We'll reach out shortly with your <span style={{ color: "#fbbf24", fontWeight: 700 }}>40% discount</span> details. Get ready for your website!
         </p>
         <button
@@ -125,7 +125,7 @@ export function ContactForm({ onClose }: { onClose: () => void }) {
   return (
     <div>
       <h3 className="text-xl font-black text-white mb-1">Claim Your 40% Off</h3>
-      <p className="text-slate-400 text-sm mb-5">Enter your contact — we'll reach out instantly.</p>
+      <p className="text-nunito-400 text-sm mb-5">Enter your contact — we'll reach out instantly.</p>
 
       {/* Toggle */}
       <div className="flex gap-2 mb-4">
@@ -314,7 +314,7 @@ export default function AdPopup() {
                       <span className="text-5xl font-black" style={{ background: "linear-gradient(135deg,#fbbf24,#f59e0b)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>40%</span>
                       <span className="text-xl font-bold text-white">OFF</span>
                     </div>
-                    <div className="text-xs mt-1" style={{ color: "#64748b" }}>On your first website project</div>
+                    <div className="text-xs mt-1" style={{ color: "#ffffff" }}>On your first website project</div>
                   </div>
                   <div className="flex flex-col items-center justify-center w-18 h-18 rounded-full text-center px-3 py-3"
                     style={{ background: "linear-gradient(135deg,#1d4ed8,#3b82f6)", boxShadow: "0 0 25px rgba(59,130,246,0.55)", border: "2px dashed rgba(147,197,253,0.4)" }}>

@@ -15,6 +15,7 @@ export default function Pricing() {
         t('pricing_basic_feature3'),
         t('pricing_basic_feature4'),
         t('pricing_basic_feature5'),
+        t('pricing_basic_feature6'),
       ],
       popular: false,
       cta: t('pricing_cta'),
@@ -30,6 +31,7 @@ export default function Pricing() {
         t('pricing_standard_feature4'),
         t('pricing_standard_feature5'),
         t('pricing_standard_feature6'),
+        t('pricing_standard_feature7'),
       ],
       popular: true,
       cta: t('pricing_cta'),
@@ -46,6 +48,7 @@ export default function Pricing() {
         t('pricing_premium_feature5'),
         t('pricing_premium_feature6'),
         t('pricing_premium_feature7'),
+        t('pricing_premium_feature8'),
       ],
       popular: false,
       cta: t('pricing_cta'),
@@ -74,10 +77,10 @@ export default function Pricing() {
     <section id="pricing" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-nunito-900 mb-4">
             {t('pricing_title')}
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-xl text-nunito-600 max-w-3xl mx-auto">
             {t('pricing_subtitle')}
           </p>
         </div>
@@ -100,19 +103,19 @@ export default function Pricing() {
               )}
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                <h3 className="text-2xl font-bold text-nunito-900 mb-2">
                   {plan.name}
                 </h3>
-                <p className="text-slate-600 text-sm mb-6">
+                <p className="text-nunito-600 text-sm mb-6">
                   {plan.description}
                 </p>
 
                 <div className="mb-6">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-slate-900">
+                    <span className="text-3xl font-bold text-nunito-900">
                       {t('pricing_currency')}
                     </span>
-                    <span className="text-5xl font-bold text-slate-900">
+                    <span className="text-5xl font-bold text-nunito-900">
                       {plan.price}
                     </span>
                   </div>
@@ -123,7 +126,7 @@ export default function Pricing() {
                   className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 mb-8 ${
                     plan.popular
                       ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-900'
+                      : 'bg-slate-100 hover:bg-slate-200 text-nunito-900'
                   }`}
                 >
                   {plan.cta}
@@ -135,7 +138,7 @@ export default function Pricing() {
                       <div className="flex-shrink-0 w-5 h-5 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
                         <Check className="w-3 h-3 text-green-600" />
                       </div>
-                      <span className="text-slate-700 text-sm">{feature}</span>
+                      <span className="text-nunito-700 text-sm">{feature}</span>
                     </div>
                   ))}
                 </div>
