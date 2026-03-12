@@ -7,9 +7,9 @@ import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import AdPopup from './components/AdPopup';
+//import AdPopup from './components/AdPopup';
 import SplashScreen from './components/SplashScreen';
-import FloatingCTA from './components/FloatingCTA';
+//import FloatingCTA from './components/FloatingCTA';
 function App() {
   const [splashDone, setSplashDone] = useState(false);
   
@@ -24,8 +24,8 @@ function App() {
       <Pricing />
       <Contact />
       <Footer />
-      <AdPopup />
-      <FloatingCTA />
+      {/* <AdPopup />
+      <FloatingCTA /> */}
     </div>
   );
 }
