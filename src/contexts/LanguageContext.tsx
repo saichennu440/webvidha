@@ -7,7 +7,11 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
+<<<<<<< HEAD
 
+=======
+//added comment
+>>>>>>> dev
 const translations = {
   en: {
     nav_home: 'Home',
@@ -71,14 +75,22 @@ const translations = {
     pricing_contact: 'Contact Us',
 
     pricing_basic_title: 'Basic',
+<<<<<<< HEAD
     pricing_basic_price: '5,000',
+=======
+    pricing_basic_price: '6,000',
+>>>>>>> dev
     pricing_basic_desc: 'Perfect for small businesses and startups',
     pricing_basic_feature1: 'Up to 5 pages',
     pricing_basic_feature2: 'Responsive design',
     pricing_basic_feature3: 'Contact form',
     pricing_basic_feature4: 'SEO optimization',
     pricing_basic_feature5: '30 days support',
+<<<<<<< HEAD
     pricing_basic_feature6: 'provided hosting-999/Year',
+=======
+    pricing_basic_feature6: 'Provided Free hosting',
+>>>>>>> dev
 
     pricing_standard_title: 'Standard',
     pricing_standard_price: '15,000',
@@ -89,7 +101,11 @@ const translations = {
     pricing_standard_feature4: 'Advanced SEO',
     pricing_standard_feature5: '90 days support',
     pricing_standard_feature6: 'Social media integration',
+<<<<<<< HEAD
     pricing_standard_feature7: 'provided hosting-699/Year',
+=======
+    pricing_standard_feature7: 'Provided Free hosting',
+>>>>>>> dev
 
     pricing_premium_title: 'Premium',
     pricing_premium_price: '30,000',
@@ -101,7 +117,11 @@ const translations = {
     pricing_premium_feature5: '6 months support',
     pricing_premium_feature6: 'Performance optimization',
     pricing_premium_feature7: 'Priority support',
+<<<<<<< HEAD
     pricing_premium_feature8: 'Free hosting',
+=======
+    pricing_premium_feature8: 'Provided Free hosting',
+>>>>>>> dev
 
     pricing_custom_title: 'Custom Projects',
     pricing_custom_desc: 'Tailored solutions for unique requirements',
@@ -209,14 +229,22 @@ const translations = {
     pricing_contact: 'మమ్మల్ని సంప్రదించండి',
 
     pricing_basic_title: 'బేసిక్',
+<<<<<<< HEAD
     pricing_basic_price: '5,000',
+=======
+    pricing_basic_price: '6,000',
+>>>>>>> dev
     pricing_basic_desc: 'చిన్న వ్యాపారాలు మరియు స్టార్టప్‌లకు పర్ఫెక్ట్',
     pricing_basic_feature1: '5 పేజీల వరకు',
     pricing_basic_feature2: 'రెస్పాన్సివ్ డిజైన్',
     pricing_basic_feature3: 'కాంటాక్ట్ ఫారమ్',
     pricing_basic_feature4: 'SEO ఆప్టిమైజేషన్',
     pricing_basic_feature5: '30 రోజుల మద్దతు',
+<<<<<<< HEAD
     pricing_basic_feature6: 'హోస్టింగ్ సౌకర్యం - సంవత్సరానికి 999',
+=======
+    pricing_basic_feature6: 'ఉచిత హోస్టింగ్ సౌకర్యం ',
+>>>>>>> dev
 
     pricing_standard_title: 'స్టాండర్డ్',
     pricing_standard_price: '15,000',
@@ -227,7 +255,11 @@ const translations = {
     pricing_standard_feature4: 'అడ్వాన్స్‌డ్ SEO',
     pricing_standard_feature5: '90 రోజుల మద్దతు',
     pricing_standard_feature6: 'సోషల్ మీడియా ఇంటిగ్రేషన్',
+<<<<<<< HEAD
     pricing_standard_feature7: 'హోస్టింగ్ సౌకర్యం - సంవత్సరానికి 699',
+=======
+    pricing_standard_feature7: 'ఉచిత హోస్టింగ్ సౌకర్యం ',
+>>>>>>> dev
 
     pricing_premium_title: 'ప్రీమియం',
     pricing_premium_price: '30,000',
@@ -347,14 +379,22 @@ const translations = {
     pricing_contact: 'हमसे संपर्क करें',
 
     pricing_basic_title: 'बेसिक',
+<<<<<<< HEAD
     pricing_basic_price: '5,000',
+=======
+    pricing_basic_price: '6,000',
+>>>>>>> dev
     pricing_basic_desc: 'छोटे व्यवसायों और स्टार्टअप के लिए परफेक्ट',
     pricing_basic_feature1: '5 पेज तक',
     pricing_basic_feature2: 'रिस्पॉन्सिव डिज़ाइन',
     pricing_basic_feature3: 'संपर्क फ़ॉर्म',
     pricing_basic_feature4: 'SEO ऑप्टिमाइज़ेशन',
     pricing_basic_feature5: '30 दिन की सहायता',
+<<<<<<< HEAD
     pricing_basic_feature6: 'होस्टिंग-999/वर्ष',
+=======
+    pricing_basic_feature6: 'होस्टिंग',
+>>>>>>> dev
 
     pricing_standard_title: 'स्टैंडर्ड',
     pricing_standard_price: '15,000',
@@ -365,7 +405,11 @@ const translations = {
     pricing_standard_feature4: 'एडवांस्ड SEO',
     pricing_standard_feature5: '90 दिन की सहायता',
     pricing_standard_feature6: 'सोशल मीडिया इंटीग्रेशन',
+<<<<<<< HEAD
     pricing_standard_feature7: 'होस्टिंग-699/वर्ष',
+=======
+    pricing_standard_feature7: 'होस्टिंग',
+>>>>>>> dev
 
     pricing_premium_title: 'प्रीमियम',
     pricing_premium_price: '30,000',
@@ -485,14 +529,22 @@ const translations = {
     pricing_contact: 'எங்களை தொடர்பு கொள்ளுங்கள்',
 
     pricing_basic_title: 'அடிப்படை',
+<<<<<<< HEAD
     pricing_basic_price: '5,000',
+=======
+    pricing_basic_price: '6,000',
+>>>>>>> dev
     pricing_basic_desc: 'சிறு வணிகங்கள் மற்றும் ஸ்டார்ட்அப்களுக்கு சரியானது',
     pricing_basic_feature1: '5 பக்கங்கள் வரை',
     pricing_basic_feature2: 'பதிலளிக்கக்கூடிய வடிவமைப்பு',
     pricing_basic_feature3: 'தொடர்பு படிவம்',
     pricing_basic_feature4: 'SEO உகப்பாக்கம்',
     pricing_basic_feature5: '30 நாள் ஆதரவு',
+<<<<<<< HEAD
     pricing_basic_feature6: 'ஹோஸ்டிங்-999/ஆண்டு',
+=======
+    pricing_basic_feature6: 'ஹோஸ்டிங்',
+>>>>>>> dev
 
     pricing_standard_title: 'நிலையான',
     pricing_standard_price: '15,000',
@@ -503,7 +555,11 @@ const translations = {
     pricing_standard_feature4: 'மேம்பட்ட SEO',
     pricing_standard_feature5: '90 நாள் ஆதரவு',
     pricing_standard_feature6: 'சமூக ஊடக ஒருங்கிணைப்பு',
+<<<<<<< HEAD
     pricing_standard_feature7: 'ஹோஸ்டிங்-699/ஆண்டு',
+=======
+    pricing_standard_feature7: 'ஹோஸ்டிங்',
+>>>>>>> dev
 
     pricing_premium_title: 'பிரீமியம்',
     pricing_premium_price: '30,000',
@@ -623,14 +679,22 @@ const translations = {
     pricing_contact: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ',
 
     pricing_basic_title: 'ಮೂಲಭೂತ',
+<<<<<<< HEAD
     pricing_basic_price: '5,000',
+=======
+    pricing_basic_price: '6,000',
+>>>>>>> dev
     pricing_basic_desc: 'ಸಣ್ಣ ವ್ಯಾಪಾರಗಳು ಮತ್ತು ಸ್ಟಾರ್ಟ್‌ಅಪ್‌ಗಳಿಗೆ ಸೂಕ್ತ',
     pricing_basic_feature1: '5 ಪುಟಗಳವರೆಗೆ',
     pricing_basic_feature2: 'ಸ್ಪಂದನಶೀಲ ವಿನ್ಯಾಸ',
     pricing_basic_feature3: 'ಸಂಪರ್ಕ ನಮೂನೆ',
     pricing_basic_feature4: 'SEO ಆಪ್ಟಿಮೈಸೇಶನ್',
     pricing_basic_feature5: '30 ದಿನಗಳ ಬೆಂಬಲ',
+<<<<<<< HEAD
     pricing_basic_feature6: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ - ವರ್ಷಕ್ಕೆ 999',
+=======
+    pricing_basic_feature6: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ ',
+>>>>>>> dev
 
     pricing_standard_title: 'ಮಾನಕ',
     pricing_standard_price: '15,000',
@@ -641,7 +705,11 @@ const translations = {
     pricing_standard_feature4: 'ಸುಧಾರಿತ SEO',
     pricing_standard_feature5: '90 ದಿನಗಳ ಬೆಂಬಲ',
     pricing_standard_feature6: 'ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ ಏಕೀಕರಣ',
+<<<<<<< HEAD
     pricing_standard_feature7: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ - ವರ್ಷಕ್ಕೆ 699',
+=======
+    pricing_standard_feature7: 'ಹೋಸ್ಟಿಂಗ್ ಸೌಲಭ್ಯ ',
+>>>>>>> dev
 
     pricing_premium_title: 'ಪ್ರೀಮಿಯಂ',
     pricing_premium_price: '30,000',
