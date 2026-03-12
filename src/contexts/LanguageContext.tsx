@@ -7,7 +7,7 @@ interface LanguageContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
-
+//added comment
 const translations = {
   en: {
     nav_home: 'Home',
